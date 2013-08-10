@@ -11,7 +11,7 @@ function start(route,handle) {
       postData += postDataChunk;
       console.log("Received POST data chunk '"+ postDataChunk + "'.");
       });
-    request.addListener("end", function() {
+    req.addListener("end", function() {
       route(handle, pathname, res, postData);
       });
     }).listen(8888);
