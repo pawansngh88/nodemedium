@@ -1,6 +1,6 @@
 var exec = require("child_process").exec;
 
-function start(res) {
+function start(res, postData) {
   console.log("Request handler 'start' was called.");
   var body = '<html>'+
     '<head>'+
@@ -14,14 +14,14 @@ function start(res) {
     '</form>'+
     '</body>'+
     '</html>';
-  res.writeHead(200,{"Content-Type": "text/plain; charset=utf-8"});
+  res.writeHead(200,{"Content-Type": "text/html; charset=utf-8"});
   res.write(body);
   res.end();
 }
-function upload(res) {
+function upload(res, postData) {
   console.log("Request handler 'upload' was called.");
   res.writeHead(200,{"Content-Type": "text/plain; charset=utf-8"});
-  res.write("Hello upload");
+  res.write("You've sent: " + postData);
   res.end();
 }
 
